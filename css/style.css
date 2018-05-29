@@ -1,0 +1,239 @@
+/*General shit*/
+
+:root{
+    --page-width: 1400px;
+    --page-padding: 20px;
+
+    --nav-height: 50px;
+    --top-bar-height: 30px;
+    --mobile-header-height: 60px;
+    /* FÄRGER */
+    --border-color: #eee;
+    --blue: #06283e;
+    /* FONTS */
+    --font-color: #333;
+    --font-family-header: 'Lato', sans-serif;
+    --font-family-body: 'Tajawal', sans-serif;
+    --font-family-title: 'Kotta One', serif;
+
+}
+
+html{
+    font-family: var(--font-family-body);
+    margin: 0;
+}
+
+h1,h2,h3,h4,h5{
+    font-family: var(--font-family-header);
+}
+
+a{
+    color: var(--font-color);
+    text-decoration: none;
+}
+a.visited{
+    color: var(--font-color);
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+
+
+
+/*DESKTOP*/
+
+/*HEADER  */
+header{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    background-color: var(--blue);
+}
+#top-bar{
+    display: inline-block;
+    height: var(--top-bar-height);
+    background-color: rgb(221, 221, 221);
+    width: 100%;
+}
+#top-bar ul{
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 var(--page-padding);
+}
+#top-bar ul li{
+    display: inline-block;
+    line-height: var(--top-bar-height);
+    float: left;
+    margin-right: 15px;
+}
+.icon-wrapper{
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    padding: 10px 0;
+}
+.icon-wrapper img{
+    max-width: 200px;
+}
+
+
+/*Menue*/
+
+#mobile-nav,.hamburgare-icon, #desktop-nav .lvl2 {
+    display: none;
+}
+
+
+#desktop-nav{
+    display: inline-block;
+    height: var(--nav-height);
+    position: sticky;
+    top: 1px;
+    background: var(--blue);
+    width: 100%;
+    line-height: var(--nav-height);
+}
+
+#desktop-nav .lvl1{
+    position: relative;
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 0 var(--page-padding);
+    font-family: var(--font-family-header);
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: white; 
+    
+}
+#desktop-nav .lvl1 > li{
+    position: relative;
+    display: inline-block;
+    width: 24%;
+    text-align: center;
+    
+}
+#desktop-nav .lvl1 > li > a{
+    color: white; 
+}
+
+#desktop-nav .lvl1 > li:hover{
+    background: rgb(206, 206, 206);
+}
+#desktop-nav .lvl1 > li:hover > .lvl2{
+    display: block;
+    width: 100%;
+    position:absolute;
+    top: 60px;
+    left: 0; 
+    background: white;
+    
+}
+#desktop-nav .lvl2 > li{
+    padding: 0 5px;
+    color: var(--font-color);
+    text-align: left;
+    border-bottom: 1px solid black; 
+
+}
+
+
+/*START WRAPPER*/
+#start-wrapper{
+    display: inline-block;
+    background-color: #eeeeee;
+}
+
+/*DESKTOP*/
+@media all and (min-width:767px)  {}/*DESKTOP ENDS*/
+
+
+/*MOBILE*/
+@media all and (max-width:767px)  {
+
+/*MOBILE-HEADER*/
+
+#top-bar{
+    display: none;
+}
+
+header{
+    height: var(--mobile-header-height);
+    position: fixed;
+    top: 1px;
+    left: 0;
+}
+
+.icon-wrapper img{
+    width: 110px;
+}
+
+/*MOBILE MENUE*/
+
+#desktop-nav {
+    display: none;
+}
+
+.hamburgare-icon{
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 20px;
+}
+.hamburgare-icon:before{
+    font-family: "fontawesome";
+    font-size: 32px;
+    content: '\f0c9';
+    color: white;
+}
+
+/*LVL1*/
+#mobile-nav{
+    position: absolute;
+    display: inline-block;
+    left: -310px;
+    top: var(--mobile-header-height);
+    transition: 1s;
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+    background: var(--blue);
+}
+#mobile-nav a{
+    color: white;
+}
+ 
+#mobile-nav.open{
+    left: 0px;
+    
+} 
+#mobile-nav .lvl1{
+    padding-left: 15px;
+}
+
+#mobile-nav .lvl1 > li{
+    width: 100%;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+} 
+
+/*LVL2*/
+
+#mobile-nav .lvl1 >li.open > .lvl2{
+    display: block;
+}
+
+#mobile-nav .lvl2 {
+    display: none;
+    padding-left: 15px;
+    transition: 1s;
+}
+#mobile-nav .lvl2 > li {
+    height: 25px;
+    line-height: 25px;
+} 
+}/*MOBILE ENDS*/
